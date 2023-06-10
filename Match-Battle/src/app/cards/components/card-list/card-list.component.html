@@ -1,0 +1,29 @@
+<h1 class="text-center mt-2 pt-1">Tarjetas</h1>
+<div class="container col-md-12">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let card of cards">
+      <div class="card border border-secondary-subtle my-2" style="width: 20rem;">
+        <div class="card-header">
+          <div class="title">
+            <h5 class="text-center">{{ card.name }}</h5>
+          </div>
+        </div>
+        <div class="card-header-img">
+          <div class="imagen d-flex justify-content-center">
+            <img [src]="card.image" class="card-img-top" width="10" alt="...">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p><b>Type:</b> {{ card.type }}</p>
+            <p><b>Attack:</b> {{ card.attack }}</p>
+            <p><b>Defense:</b> {{ card.defense }}</p>
+            <p><b>Ability:</b> {{ card.ability }}</p>
+            <p><b>Pokedex Number:</b> {{ card.pokedexNumber }}</p>
+            <p><b>Evolution:</b> {{ card.evolution }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
