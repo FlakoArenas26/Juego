@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent {
+
+  games: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any[]>('http://localhost:3000/games').subscribe(games => {
+      this.games = games;
+    });
+  }
 
 }

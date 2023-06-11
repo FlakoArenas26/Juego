@@ -1,1 +1,33 @@
-<p>create-game works!</p>
+<form [formGroup]="partidaForm" (ngSubmit)="crearPartida(partidaForm.value)">
+  <div class="container col-md-3 border border-secondary-subtle rounded mt-5 pt-2 mb-5 pb-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+    <h3 class="text-center mt-3 pt-1 mb-3 pb-1">Crear Nuevo Juego</h3>
+    <div class="container justify-content-center align-items-center mt-2 pt-2">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="name">Nombre:</span>
+        <input type="text" class="form-control" placeholder="Nombre Partida" aria-label="Nombre Partida" aria-describedby="name" formControlName="name">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="code">Código:</span>
+        <input type="text" class="form-control" placeholder="Código Partida" aria-label="Código Partida" aria-describedby="code" formControlName="code" readonly>
+        <span class="input-group-text" id="code">
+          <button type="button" class="btn btn-default" (click)="generarCodigo()">Generar código</button>
+        </span>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="name">Rol:</span>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" formControlName="rol">
+          <option selected>Seleccionar...</option>
+          <option value="Admin">Admin</option>
+          <option value="Player">Player</option>
+        </select>
+      </div>
+      <div class="container col-md-4 justify-content-center align-items-center">
+        <div class="button">
+          <button type="submit" class="btn btn-success" [disabled]="partidaForm.invalid">Crear Juego</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<app-game-list></app-game-list>
